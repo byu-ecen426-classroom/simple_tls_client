@@ -9,7 +9,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives.serialization import load_pem_private_key
 
 
-def encrypt_with_public_key(public_key, plaintext):
+def encrypt_with_public_key(plaintext, public_key):
     return public_key.encrypt(
         plaintext,
         padding.OAEP(
@@ -20,7 +20,7 @@ def encrypt_with_public_key(public_key, plaintext):
     )
 
 
-def decrypt_with_private_key(private_key, ciphertext):
+def decrypt_with_private_key(ciphertext, private_key):
     return private_key.decrypt(
         ciphertext,
         padding.OAEP(
