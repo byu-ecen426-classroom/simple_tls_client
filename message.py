@@ -54,4 +54,5 @@ class Message:
         return self.type.value.to_bytes(1, "big") + len(data).to_bytes(3, "big") + data
 
     def __str__(self) -> str:
-        return f"<Message(msg_type={self.type}, length={len(self.data)}, data={self.data})>"
+        data = self.data or b""
+        return f"<Message(msg_type={self.type}, length={len(data)}, data={data})>"
